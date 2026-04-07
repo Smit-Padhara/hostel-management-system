@@ -138,7 +138,7 @@ public class DashboardService : IDashboardService
             Resolution = c.Resolution,
             ReportedDate = c.ReportedDate,
             ResolvedDate = c.ResolvedDate,
-            DaysOpen = (int)(c.ResolvedDate ?? DateTime.UtcNow - c.ReportedDate).TotalDays,
+            DaysOpen = (int)((c.ResolvedDate ?? DateTime.UtcNow) - c.ReportedDate).TotalDays,
             CreatedAt = c.CreatedAt,
             UpdatedAt = c.UpdatedAt
         }).ToList();

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartHostelManagementSystem.Data;
 using SmartHostelManagementSystem.DTOs.Requests;
 using SmartHostelManagementSystem.DTOs.Responses;
+using SmartHostelManagementSystem.Models.Entities;
 using SmartHostelManagementSystem.Services.Interfaces;
 
 namespace SmartHostelManagementSystem.Services.Implementations;

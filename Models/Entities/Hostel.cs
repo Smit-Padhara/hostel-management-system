@@ -12,6 +12,8 @@ public class Hostel
     public string Location { get; set; } = string.Empty;
     
     public string? Description { get; set; }
+
+    public string? PhoneNumber { get; set; }
     
     public int Capacity { get; set; }
     

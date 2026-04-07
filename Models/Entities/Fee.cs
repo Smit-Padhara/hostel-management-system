@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SmartHostelManagementSystem.Models.Entities;
 
 /// <summary>
@@ -15,11 +17,21 @@ public class Fee
     /// Fee amount with 2 decimal places
     /// </summary>
     public decimal Amount { get; set; }
-    
+
     /// <summary>
-    /// Status: Pending, Paid, Overdue
+    /// Amount paid so far
     /// </summary>
-    public string Status { get; set; } = "Pending";
+    public decimal AmountPaid { get; set; }
+
+    /// <summary>
+    /// Optional fee description
+    /// </summary>
+    public string? Description { get; set; }
+
+    /// <summary>
+    /// Status: Pending, Paid, Partial
+    /// </summary>
+    public string PaymentStatus { get; set; } = "Pending";
     
     public DateTime DueDate { get; set; }
     
@@ -35,6 +47,16 @@ public class Fee
     /// Soft delete flag
     /// </summary>
     public bool IsDeleted { get; set; } = false;
+
+    /// <summary>
+    /// Legacy alias for PaymentStatus
+    /// </summary>
+    [NotMapped]
+    public string Status
+    {
+        get => PaymentStatus;
+        set => PaymentStatus = value;
+    }
     
     // Navigation properties
     public virtual Student? Student { get; set; }

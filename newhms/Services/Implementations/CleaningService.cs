@@ -356,7 +356,7 @@ public class CleaningService : ICleaningService
     /// </summary>
     private static CleaningRecordDto MapToCleaningRecordDto(CleaningRecord record, Room? room)
     {
-        var daysOverdue = record.Status == "Pending"
+        int? daysOverdue = record.Status == "Pending"
             ? (int)(DateTime.UtcNow - record.Date).TotalDays
             : null;
 

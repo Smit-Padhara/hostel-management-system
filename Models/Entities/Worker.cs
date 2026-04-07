@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SmartHostelManagementSystem.Models.Entities;
 
 /// <summary>
@@ -23,6 +25,12 @@ public class Worker
     /// Soft delete flag
     /// </summary>
     public bool IsDeleted { get; set; } = false;
+
+    /// <summary>
+    /// Convenience name for display (derived from linked user)
+    /// </summary>
+    [NotMapped]
+    public string? FullName => User?.FullName;
     
     // Navigation properties
     public virtual ApplicationUser? User { get; set; }
